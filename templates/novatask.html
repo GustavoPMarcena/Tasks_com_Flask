@@ -1,6 +1,7 @@
 {% extends "header.html" %}
 {% block conteudo %}
-      <form  method="post">
+
+      <form action="{{url_for('newtask')}}" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="nome">Nome da Tarefa</label>
@@ -14,7 +15,9 @@
             <label for="autor">Informações da tarefa</label>
             <input type="search" id="info" name="info" class="form-control">
           </div>
+          <br>
           <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
         </fieldset>
       </form>
+      
 {% endblock %}

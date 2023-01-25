@@ -1,22 +1,31 @@
 {% extends "header.html" %}
 {% block conteudo %}
-<a  href="{{ url_for('newtask') }}" >Adicionar tarefa</a>        
+
+<a href="{{ url_for('newtask') }}" ><i class="btn btn-primary">Adicionar tarefa</i></a>     
+<br><br>  
 <table class="table table-striped table-responsive table-bordered">
     <thead class="thead-default">
         <tr>
             <th>Tarefa</th>
             <th>Data</th>
             <th>Especificações</th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
-    
+        {% for tasks in tarefas %}
         <tr>
-            <td>klkl</td>
-            <td>jkjkjk</td>
-            <td>kjkjk</td>
+            <td>{{ tasks.tarefa }}</td>
+            <td>{{ tasks.data }}</td>
+            <td>{{ tasks.descricao }}</td>
+            <td><div class="div-icon">
+                <a  href="#"><i class="btn btn-warning">Editar</i></a>
+                <a href="{{ url_for('deletartask', id=tasks.id) }}"><i class="btn btn-danger">Deletar</i></a>
+            </div></td>
+            
         </tr>
-    
+        {% endfor %}
     </tbody>
 </table>
+
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "header.html" %}
 {% block conteudo %} 
         
-        <form method="POST" >
+        <form action="{{url_for('cadastro')}}" method="POST">
             <input type="hidden" name="proxima" >
-            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
-            <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
-            <p><button class="btn btn-primary" type="submit">Entrar</button></p>
+            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="username" required></p>
+            <p><label>Senha:</label> <input class="form-control" type="password" name="password" required></p>
+            <p><button class="btn btn-primary" type="submit">Cadastrar novo usuário</button></p>
         </form>
         
 {% endblock %}
