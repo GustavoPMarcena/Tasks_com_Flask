@@ -63,3 +63,15 @@ def deletartask(id):
       db.session.commit()
       return redirect(url_for('home'))
     return render_template("excluirtask.html")
+
+@app.route('/nova_tarefa/editar/<int:id>', methods=['GET', 'POST'])
+def editartask(id):
+    tasks = Tasks.query.filter_by(id=id).first() 
+    if request.method == 'POST':
+        tasks.tarefa = request.form['nome']
+        tasks.data = request.form['data']
+        tasks.descricao = request.form['info']
+        db.session.commit()
+        flash('Filme editado com sucesso!')
+        return redirect(url_for('home'))
+    return render_template("editartask.html", titulo='Editar Tarefa', task=tasks)

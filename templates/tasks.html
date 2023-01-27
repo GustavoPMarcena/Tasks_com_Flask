@@ -19,7 +19,7 @@
             <td>{{ tasks.data }}</td>
             <td>{{ tasks.descricao }}</td>
             <td><div class="div-icon">
-                <a  href="#"><i class="btn btn-warning">Editar</i></a>
+                <a href="{{ url_for('editartask', id=tasks.id) }}"><i class="btn btn-warning">Editar</i></a>
                 <a href="{{ url_for('deletartask', id=tasks.id) }}"><i class="btn btn-danger">Deletar</i></a>
             </div></td>
             
